@@ -8,6 +8,10 @@ TagManager:
   - color
   - circle
   - diamond
+  - UIManager
+  - LevelManager
+  - diamondCountText
+  - SoundManager
   layers:
   - Default
   - TransparentFX

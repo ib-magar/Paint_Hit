@@ -265,11 +265,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b59fa91c13f88645ae0c62d07288698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 0
-  speedLimits: {x: 0, y: 0}
+  _timeConstraint: {x: 0.75, y: 1.5}
+  _angleConstraint: {x: 150, y: 360}
   stackEffect: {fileID: 3283694565682476900, guid: 50bbe7507c9f71c449ffec5f3ad3c992,
     type: 3}
-  diamond: {fileID: 2663338470807675085, guid: f8acde2d58d6e9b40a10adfed0880c8b, type: 3}
+  diamond: {fileID: 8778011813357396632, guid: ce35a10f40566f54aa2be82ebee69bc8, type: 3}
 --- !u!1 &638876565152364920
 GameObject:
   m_ObjectHideFlags: 0

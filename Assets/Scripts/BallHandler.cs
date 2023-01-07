@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using System.Data.Common;
+using DG.Tweening.Plugins;
 
 public class BallHandler : MonoBehaviour
 {
+    #region variables
     public static Color staticBallColor;
     public Transform Circlesparent;
     public Transform BallsParent;
@@ -27,11 +31,12 @@ public class BallHandler : MonoBehaviour
     [Space]
     [Header("Scripts")]
     private LevelManager levelManager;
-
+    private UIManager _uiManager;
     [Space]
     [Header("levelData")]
     private int totalCirclesCount;
     public int currentCircleCount;
+    #endregion
     private void Awake()
     {
         Circlesparent = GameObject.Find("Circles").GetComponent<Transform>();
@@ -42,21 +47,29 @@ public class BallHandler : MonoBehaviour
     }
     public void Start()
     {
-        GameObject.FindObjectOfType<UIManager>().newLevelUiFun();
+        _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
+        StartLevel();
+    }
+    public void StartLevel()
+    {
+        // This code starts the level
+        _uiManager.newLevelUiFun();
         // staticBallColor = ballColor;
         Invoke("CreateNewCircle", 1.5f);
         AssignLevelData();
-
-        GameObject.FindObjectOfType<soundManager>().fade(1);
+        //soundManager.instance.fade(1);
     }
     void AssignLevelData()
     {
+        
+
         totalCirclesCount = levelManager.currentLevel.CirclesCount;
         currentCircleCount = 0;
         ballColor = levelManager.currentLevel.colorArray[0];
         ball.GetComponent<MeshRenderer>().material.color = ballColor;
     }
-
     public void shoot()
     {
         if (canHit)
@@ -64,10 +77,14 @@ public class BallHandler : MonoBehaviour
             //Creating a new ball instance
             GameObject g = Instantiate(ballPrefab, LaunchPosition.position, Quaternion.identity);
             g.GetComponent<MeshRenderer>().material.color = ballColor;
+            g.GetComponent<TrailRenderer>().startColor = ballColor;
             g.transform.parent = BallsParent;
             g.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed, ForceMode.Impulse);
 
             levelManager.currentLevel.BallsCount[currentCircleCount]--;
+            DataManager.instance.IncrementAttempts();
+            DataManager.instance.IncrementPaintBalls();
+           
         }
     }
     public void CreateNewCircle()
@@ -75,7 +92,11 @@ public class BallHandler : MonoBehaviour
         canHit = false;             //can't hit while creating the circle
         
         //ball behaviour
-        ball.transform.DOMoveZ(0f, .5f).From(-3f).SetEase(Ease.InOutBounce);
+        ball.transform.DOMoveZ(0f, .5f).From(-3f).SetEase(Ease.InOutBounce).OnComplete(
+            ()=>
+            {
+                soundManager.instance.Stacked();
+            });
         ball.GetComponent<MeshRenderer>().material.color = levelManager.currentLevel.colorArray[currentCircleCount];
 
         //Shift the lower circles
@@ -94,20 +115,34 @@ public class BallHandler : MonoBehaviour
             newCircle.transform.position = LaunchPosition.position + new Vector3(0, LaunchPosition.position.y + 15, circleDistance);
             newCircle.name = "Circle"+currentCircleCount;
             newCircle.transform.parent = Circlesparent;
+            newCircle.GetComponent<circleScript>().SetConstraints(levelManager.currentLevel._timeConstraint, levelManager.currentLevel._angleConstraint);
+
+           DataManager.instance.IncrementCircleFills();
         
-            
     }
+    [SerializeField] GameObject _diamond;
+    private Transform requiredCirlce;
     public void changeCirlceToGradient()
     {
         //Color c = Color.Lerp(levelManager.currentLevel.upperColor, levelManager.currentLevel.downColor, (float)((currentCircleCount+1)/ levelManager.currentLevel.CirclesCount));
         Color c = levelManager.currentLevel.colorArray[currentCircleCount];
         Circlesparent.GetChild(Circlesparent.childCount-1).GetComponent<circleScript>().stopRotation();      //stopping the rotation of circle
         //print(levelManager.currentLevel.CirclesCount + " "+ currentCircleCount + "  "+ ((currentCircleCount + 1) / levelManager.currentLevel.CirclesCount));
-        foreach (Transform t in Circlesparent.GetChild(Circlesparent.childCount-1))
+         requiredCirlce = Circlesparent.GetChild(Circlesparent.childCount - 1);
+        foreach (Transform t in requiredCirlce)
         {
-            t.GetComponent<MeshRenderer>().enabled = true;
-            t.GetComponent<MeshRenderer>().material.color = c;
+            t.GetComponent<MeshRenderer>().enabled = false;
+            //t.GetComponent<MeshRenderer>().material.color = c;
         }
-      
+        requiredCirlce.GetComponent<Animator>().SetTrigger("glow");
+        Circlesparent.GetChild(Circlesparent.childCount - 1).GetComponent<circleScript>().removeDiamonds();
+        Invoke("ChangeColor", .1f);
+    }
+    public void ChangeColor() 
+    {
+        requiredCirlce.GetChild(requiredCirlce.childCount - 1).GetComponent<MeshRenderer>().enabled = true;
+       
+        requiredCirlce.GetChild(requiredCirlce.childCount-1).GetComponent<MeshRenderer>().material.color = levelManager.currentLevel.colorArray[currentCircleCount];
+
     }
 }

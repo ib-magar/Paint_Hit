@@ -4,8 +4,12 @@ using UnityEngine;
 using DG.Tweening;
 public class circleScript : MonoBehaviour
 {
-    public float RotationSpeed;
-    public Vector2 speedLimits;
+    public Transform point;
+
+    [Header("rotation values")]
+    public Vector2 _timeConstraint=new Vector2(.75f,1.5f);
+    public Vector2 _angleConstraint=new Vector2(150f,360f);
+    
     public GameObject stackEffect;
     public GameObject diamond;
 
@@ -13,17 +17,14 @@ public class circleScript : MonoBehaviour
     BallHandler ballHandler;
     LevelManager levelManager;
     private Coroutine rotationCoroutine;
-    private void Awake()
-    {
-        ballHandler = GameObject.FindObjectOfType<BallHandler>();
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
-    }
+
+    private List<Transform> diamondsList= new List<Transform>();
     private void Start()
     {
-        speedLimits = new Vector2(60f, 200f);
-        RotationSpeed = Random.Range(speedLimits.x,speedLimits.y);
+        ballHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<BallHandler>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         preColorCheck();
-       // diamondImplemention();
+        diamondImplemention();
         MoveTo(0);              //moving the circle to the 0 y-axis
         rotationCoroutine = StartCoroutine(rotate());
     }
@@ -31,16 +32,19 @@ public class circleScript : MonoBehaviour
     {
         for (int i = 0; i < levelManager.currentLevel.diamondCount[ballHandler.currentCircleCount]; i++)
         {
-            int randomNo = Random.Range(0, 24);
+            int randomNo = Random.Range(0, transform.childCount-3);
             Transform t = transform.GetChild(randomNo);
             if (t.name != "colored")
             {
                 if (t.name != "diamonded")
                 {
-                    GameObject g = Instantiate(diamond, t.GetChild(0).position, Quaternion.identity);
+                    //Vector3 direction = (transform.GetChild(transform.childCount - 1).position - t.position).normalized;
+                    GameObject g = Instantiate(diamond, t.GetChild(0).position, diamond.transform.rotation);
+                    //GameObject g = Instantiate(diamond, t.transform.localPosition+ direction*5f, diamond.transform.rotation);
                     g.tag = "diamond";
-                    g.name = "diamonded";
+                    t.name = "diamonded";
                     g.transform.parent = t;
+                    diamondsList.Add(g.transform);
                 }
                 else
                i--;
@@ -48,7 +52,7 @@ public class circleScript : MonoBehaviour
             }
             else
             i--;
-           
+            
         }
     }
     public void preColorCheck()
@@ -65,33 +69,38 @@ public class circleScript : MonoBehaviour
             }
         
     }
-    public void setRotationSpeed(float x, float y)
+    public void removeDiamonds()
     {
-        RotationSpeed = Random.Range(x, y);
+        foreach(Transform t in diamondsList)
+        {
+            if (t != null) Destroy(t.gameObject);
+        }
     }
-    public void setRotationSpeed(float x)
-    {
-        RotationSpeed = x;
-    }
-
     public void stopRotation()
     {
         if(rotationCoroutine!=null)
         StopCoroutine(rotationCoroutine);
     }
+    public void SetConstraints(Vector2 TimeConstraint ,Vector2 AngleConstraint)
+    {
+        _timeConstraint = TimeConstraint;           //.75  to 1.5
+        _angleConstraint = AngleConstraint;         // 150 to 360
+    }
     IEnumerator rotate()
     {                               //Apply the complexity
         while(true)
         {
-            float time = Random.Range(.75f, 1.5f);
-            transform.DORotate(new Vector3(transform.eulerAngles.x,Random.Range(150f,360f),transform.eulerAngles.z), time);
+            float time = Random.Range(_timeConstraint.x, _timeConstraint.y);
+            if(Random.value<.5f)
+            transform.DORotate(new Vector3(transform.eulerAngles.x,transform.eulerAngles.y+Random.Range(_angleConstraint.x,_angleConstraint.y),transform.eulerAngles.z), time);
+            else
+            transform.DORotate(new Vector3(transform.eulerAngles.x,transform.eulerAngles.y-Random.Range(_angleConstraint.x,_angleConstraint.y),transform.eulerAngles.z), time);
+
             yield return new WaitForSeconds(time);
         }
     }
-    public void MoveTo(Vector3 position)
-    {
-        transform.DOMove(position, .5f).SetEase(Ease.InOutBack);
-    }           //Moving the circle to the target position
+               //Moving the circle to the target position
+    public void MoveTo(Vector3 position) => transform.DOMove(position, .5f).SetEase(Ease.InOutBack);
     public void MoveTo(float y)
     {
         
@@ -116,4 +125,5 @@ public class circleScript : MonoBehaviour
             });
         
     }
+
 }

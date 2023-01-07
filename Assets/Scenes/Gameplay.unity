@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 42237907}
   m_Layer: 0
   m_Name: Ball Handler
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead28da0a0e12ef44bfe3e60b4c8f3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Circlesparent: {fileID: 0}
-  BallsParent: {fileID: 0}
+  Circlesparent: {fileID: 1124460356}
+  BallsParent: {fileID: 1817221247}
   instantiateKey: 32
   ballPrefab: {fileID: 1713497880814598, guid: f51802ee8a2b2f14ab82cbb61cd9f722, type: 3}
   ball: {fileID: 120801713}
@@ -179,6 +179,8 @@ MonoBehaviour:
   circleDistance: 31
   canHit: 0
   currentCircleCount: 0
+  _diamond: {fileID: 2663338470807675085, guid: f8acde2d58d6e9b40a10adfed0880c8b,
+    type: 3}
 --- !u!1 &58753294
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +193,7 @@ GameObject:
   - component: {fileID: 58753297}
   - component: {fileID: 58753296}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: upfade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,6 +1215,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332480153}
   m_CullTransparentMesh: 1
+--- !u!1001 &350664716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3431181
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9438279
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.114769
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474571, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409826786246474574, guid: 79782172b0a2cbf4da91f4c33cd1b7bb,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79782172b0a2cbf4da91f4c33cd1b7bb, type: 3}
 --- !u!1 &461236695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1930,141 @@ RectTransform:
   m_AnchoredPosition: {x: 9, y: 181}
   m_SizeDelta: {x: 51.37, y: 46.302}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &858375039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858375040}
+  - component: {fileID: 858375042}
+  - component: {fileID: 858375041}
+  m_Layer: 5
+  m_Name: diamond_count
+  m_TagString: diamondCountText
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &858375040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858375039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1251062371}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 128.2, y: 278.6}
+  m_SizeDelta: {x: 49.353, y: 38.355}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &858375041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858375039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 001
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 21.8
+  m_fontSizeBase: 21.8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &858375042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858375039}
+  m_CullTransparentMesh: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,7 +2220,7 @@ GameObject:
   - component: {fileID: 1010707360}
   m_Layer: 5
   m_Name: Ui
-  m_TagString: Untagged
+  m_TagString: UIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2120,6 +2326,9 @@ MonoBehaviour:
   levelText: {fileID: 332480155}
   targetText: {fileID: 464166448}
   circleImage: {fileID: 1299052769}
+  _diamondsText: {fileID: 858375041}
+  _upFade: {fileID: 58753296}
+  _downFade: {fileID: 1290144180}
   restartUI: {fileID: 461236695}
   restatCircleImage: {fileID: 317847010}
   pauseUI: {fileID: 1304671781}
@@ -2194,7 +2403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.7264151, b: 0.6757798, a: 1}
+  m_Color: {r: 0.5934486, g: 0.12061229, b: 0.8301887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2302,7 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.069811285, g: 1, b: 0.7277608, a: 1}
+  m_Color: {r: 0.7393679, g: 0.35065857, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2480,6 +2689,8 @@ RectTransform:
   - {fileID: 715733345}
   - {fileID: 1583208509}
   - {fileID: 1955994958}
+  - {fileID: 1606262466}
+  - {fileID: 858375040}
   m_Father: {fileID: 1010707359}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2576,7 +2787,7 @@ GameObject:
   - component: {fileID: 1290144181}
   - component: {fileID: 1290144180}
   m_Layer: 5
-  m_Name: Image
+  m_Name: downFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2733,7 +2944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1304671782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2794,6 +3005,50 @@ RectTransform:
   m_AnchoredPosition: {x: 3.008728, y: 0.5722656}
   m_SizeDelta: {x: 2237.6655, y: 5506.117}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1367741717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367741719}
+  - component: {fileID: 1367741718}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1367741718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367741717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83eff98f77d554240b8bbd6be6ba03c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1367741719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367741717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.032827847, y: 4.716366, z: 43.095566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373699634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,6 +3577,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583208508}
   m_CullTransparentMesh: 1
+--- !u!1 &1606262465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606262466}
+  - component: {fileID: 1606262468}
+  - component: {fileID: 1606262467}
+  m_Layer: 5
+  m_Name: diamond_image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1606262466
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606262465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6920113, y: 0.6920113, z: 0.6920113}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1251062371}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -11.899994, y: -27}
+  m_SizeDelta: {x: 25, y: 41}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1606262467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606262465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cd731edf7610c784a86d7494a5348c9e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1606262468
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606262465}
+  m_CullTransparentMesh: 1
 --- !u!1 &1714356783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,7 +4089,7 @@ GameObject:
   - component: {fileID: 2058573069}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3776,59 +4107,305 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
+  - CirclesCount: 3
+    BallsCount: 030000000300000003000000
+    colorArray:
+    - {r: 0.6461641, g: 0, b: 0.9811321, a: 1}
+    - {r: 0.79064614, g: 0.4377358, b: 1, a: 1}
+    - {r: 0.7534639, g: 0.5886792, b: 1, a: 1}
+    preColoredCount: 000000000100000001000000
+    diamondCount: 010000000200000002000000
+    difficultyLevel: 0
+    _timeConstraint: {x: 0.75, y: 1.5}
+    _angleConstraint: {x: 180, y: 360}
   - CirclesCount: 4
-    BallsCount: 03000000030000000300000004000000
+    BallsCount: 02000000030000000300000004000000
     colorArray:
-    - {r: 0.6461641, g: 0, b: 0.9811321, a: 0}
-    - {r: 0.79064614, g: 0.4377358, b: 1, a: 0}
-    - {r: 0.7534639, g: 0.5886792, b: 1, a: 0}
-    - {r: 0.89541507, g: 0.81509435, b: 1, a: 0}
-    preColoredCount: 00000000010000000200000001000000
-    diamondCount: 00000000020000000100000003000000
+    - {r: 0, g: 1, b: 0.5734246, a: 1}
+    - {r: 0.44716978, g: 1, b: 0.7621903, a: 1}
+    - {r: 0.56981134, g: 1, b: 0.81389, a: 1}
+    - {r: 0.7773585, g: 1, b: 0.90487134, a: 1}
+    preColoredCount: 00000000010000000100000002000000
+    diamondCount: 00000000010000000100000001000000
+    difficultyLevel: 1
+    _timeConstraint: {x: 1, y: 2.5}
+    _angleConstraint: {x: 180, y: 360}
+  - CirclesCount: 4
+    BallsCount: 03000000040000000400000005000000
+    colorArray:
+    - {r: 0.7371774, g: 1, b: 0, a: 1}
+    - {r: 0.8449351, g: 1, b: 0.40943396, a: 1}
+    - {r: 0.90353614, g: 1, b: 0.63584906, a: 1}
+    - {r: 0.9451752, g: 1, b: 0.78679246, a: 1}
+    preColoredCount: 01000000010000000200000002000000
+    diamondCount: 02000000020000000300000003000000
+    difficultyLevel: 1
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
   - CirclesCount: 5
-    BallsCount: 0300000003000000040000000500000005000000
+    BallsCount: 0300000004000000040000000500000005000000
     colorArray:
-    - {r: 0.069811285, g: 0.44627243, b: 1, a: 0}
-    - {r: 0.30566037, g: 0.5869121, b: 1, a: 0}
-    - {r: 0.5226415, g: 0.71600205, b: 1, a: 0}
-    - {r: 0.7018868, g: 0.8226416, b: 1, a: 0}
-    - {r: 0.93773586, g: 0.9629568, b: 1, a: 0}
-    preColoredCount: 0100000001000000020000000200000002000000
-    diamondCount: 0000000000000000000000000000000000000000
+    - {r: 1, g: 0.07204949, b: 0, a: 1}
+    - {r: 1, g: 0.2932963, b: 0.2396226, a: 1}
+    - {r: 1, g: 0.48706475, b: 0.44716978, a: 1}
+    - {r: 1, g: 0.6967349, b: 0.67358494, a: 1}
+    - {r: 1, g: 0.85471696, b: 0.84339625, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000
+    diamondCount: 0100000002000000020000000300000004000000
+    difficultyLevel: 2
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
   - CirclesCount: 6
     BallsCount: 030000000200000003000000040000000400000005000000
     colorArray:
-    - {r: 0.49056602, g: 0.04157339, b: 0, a: 0}
-    - {r: 0.6886792, g: 0.055731267, b: 0, a: 0}
-    - {r: 0.8207547, g: 0.06759156, b: 0, a: 0}
-    - {r: 1, g: 0.2502996, b: 0.1830188, a: 0}
-    - {r: 1, g: 0.38881236, b: 0.3339622, a: 0}
-    - {r: 1, g: 0.49269697, b: 0.44716978, a: 0}
+    - {r: 0.49056602, g: 0.04157339, b: 0, a: 1}
+    - {r: 0.6886792, g: 0.055731267, b: 0, a: 1}
+    - {r: 0.8207547, g: 0.06759156, b: 0, a: 1}
+    - {r: 1, g: 0.2502996, b: 0.1830188, a: 1}
+    - {r: 1, g: 0.38881236, b: 0.3339622, a: 1}
+    - {r: 1, g: 0.49269697, b: 0.44716978, a: 1}
     preColoredCount: 010000000100000002000000020000000300000002000000
-    diamondCount: 000000000000000000000000000000000000000000000000
+    diamondCount: 020000000100000003000000020000000400000003000000
+    difficultyLevel: 2
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 5
+    BallsCount: 0300000004000000040000000500000005000000
+    colorArray:
+    - {r: 1, g: 0.693989, b: 0, a: 1}
+    - {r: 0.8018868, g: 0.5566038, b: 0, a: 1}
+    - {r: 0.5943396, g: 0.41370702, b: 0, a: 1}
+    - {r: 0.4433962, g: 0.30629343, b: 0, a: 1}
+    - {r: 0.3301887, g: 0.22791788, b: 0, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000
+    diamondCount: 0300000003000000030000000400000004000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 5
+    BallsCount: 0300000004000000040000000500000005000000
+    colorArray:
+    - {r: 0.89686775, g: 0, b: 1, a: 1}
+    - {r: 0.9277764, g: 0.2867924, b: 1, a: 1}
+    - {r: 0.9484071, g: 0.47547168, b: 1, a: 1}
+    - {r: 0.9640345, g: 0.63584906, b: 1, a: 1}
+    - {r: 0.97894245, g: 0.78679246, b: 1, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000
+    diamondCount: 0300000003000000030000000400000004000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
   - CirclesCount: 6
     BallsCount: 030000000400000004000000050000000600000006000000
     colorArray:
-    - {r: 0, g: 0.3018868, b: 0.08535796, a: 0}
-    - {r: 0, g: 0.41509432, b: 0.11859842, a: 0}
-    - {r: 0, g: 0.5283019, b: 0.15094346, a: 0}
-    - {r: 0, g: 0.6509434, b: 0.1859839, a: 0}
-    - {r: 0, g: 0.764151, b: 0.21832892, a: 0}
-    - {r: 0, g: 0.9811321, b: 0.28032357, a: 0}
+    - {r: 0, g: 0.3018868, b: 0.08535796, a: 1}
+    - {r: 0, g: 0.41509432, b: 0.11859842, a: 1}
+    - {r: 0, g: 0.5283019, b: 0.15094346, a: 1}
+    - {r: 0, g: 0.6509434, b: 0.1859839, a: 1}
+    - {r: 0, g: 0.764151, b: 0.21832892, a: 1}
+    - {r: 0, g: 0.9811321, b: 0.28032357, a: 1}
     preColoredCount: 010000000100000002000000020000000300000003000000
-    diamondCount: 000000000000000000000000000000000000000000000000
-  - CirclesCount: 7
-    BallsCount: 03000000040000000400000005000000060000000600000007000000
+    diamondCount: 010000000200000002000000030000000400000004000000
+    difficultyLevel: 2
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 6
+    BallsCount: 030000000400000004000000050000000500000005000000
     colorArray:
-    - {r: 0, g: 0.38078904, b: 0.3962264, a: 0}
-    - {r: 0, g: 0.52528304, b: 0.5471698, a: 0}
-    - {r: 0, g: 0.61923474, b: 0.6415094, a: 0}
-    - {r: 0, g: 0.6944347, b: 0.7264151, a: 0}
-    - {r: 0, g: 0.7349011, b: 0.764151, a: 0}
-    - {r: 0, g: 0.8728763, b: 0.9056604, a: 0}
-    - {r: 0.107547104, g: 0.96500194, b: 1, a: 0}
+    - {r: 0, g: 0.03773582, b: 0.0054753907, a: 1}
+    - {r: 0, g: 0.254717, b: 0.025471674, a: 1}
+    - {r: 0, g: 0.4528302, b: 0.04179976, a: 1}
+    - {r: 0, g: 0.5943396, b: 0.056849834, a: 1}
+    - {r: 0, g: 0.735849, b: 0.06777549, a: 1}
+    - {r: 0, g: 0.9056604, b: 0.081894785, a: 1}
+    preColoredCount: 010000000100000002000000020000000300000003000000
+    diamondCount: 030000000300000003000000040000000400000005000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 7
+    BallsCount: 02000000030000000300000004000000050000000500000006000000
+    colorArray:
+    - {r: 0, g: 0.38078904, b: 0.3962264, a: 1}
+    - {r: 0, g: 0.52528304, b: 0.5471698, a: 1}
+    - {r: 0, g: 0.61923474, b: 0.6415094, a: 1}
+    - {r: 0, g: 0.6944347, b: 0.7264151, a: 1}
+    - {r: 0, g: 0.7349011, b: 0.764151, a: 1}
+    - {r: 0, g: 0.8728763, b: 0.9056604, a: 1}
+    - {r: 0.107547104, g: 0.96500194, b: 1, a: 1}
     preColoredCount: 01000000010000000200000002000000030000000300000003000000
-    diamondCount: 000000000000000000000000000000000000000000000000
+    diamondCount: 02000000020000000200000003000000040000000400000004000000
+    difficultyLevel: 3
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 6
+    BallsCount: 030000000400000004000000050000000600000006000000
+    colorArray:
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+    - {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    - {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+    - {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+    - {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    preColoredCount: 010000000100000002000000020000000300000003000000
+    diamondCount: 010000000200000003000000040000000300000005000000
+    difficultyLevel: 4
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 6
+    BallsCount: 030000000400000004000000050000000600000006000000
+    colorArray:
+    - {r: 0, g: 1, b: 0.8263514, a: 1}
+    - {r: 0, g: 0.8584906, b: 0.71035886, a: 1}
+    - {r: 0, g: 0.7264151, b: 0.6003704, a: 1}
+    - {r: 0, g: 0.5566038, b: 0.4590174, a: 1}
+    - {r: 0, g: 0.4056604, b: 0.3342413, a: 1}
+    - {r: 0, g: 0.2830189, b: 0.23355928, a: 1}
+    preColoredCount: 010000000100000002000000020000000300000003000000
+    diamondCount: 010000000200000002000000040000000400000004000000
+    difficultyLevel: 3
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 7
+    BallsCount: 03000000040000000400000005000000060000000600000006000000
+    colorArray:
+    - {r: 1, g: 0.5529412, b: 0, a: 1}
+    - {r: 0.8584906, g: 0.518461, b: 0, a: 1}
+    - {r: 0.745283, g: 0.4500925, b: 0, a: 1}
+    - {r: 0.6037736, g: 0.36544192, b: 0, a: 1}
+    - {r: 0.4811321, g: 0.29055378, b: 0, a: 1}
+    - {r: 0.3490566, g: 0.21000154, b: 0, a: 1}
+    - {r: 0.2264151, g: 0.13737544, b: 0, a: 1}
+    preColoredCount: 01000000010000000200000002000000030000000300000003000000
+    diamondCount: 03000000030000000400000005000000050000000500000006000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 7
+    BallsCount: 03000000040000000400000005000000050000000500000006000000
+    colorArray:
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0.23251483, g: 0, b: 0.24528301, a: 1}
+    - {r: 0.4152442, g: 0, b: 0.4433962, a: 1}
+    - {r: 0.56637174, g: 0, b: 0.6037736, a: 1}
+    - {r: 0.74099475, g: 0, b: 0.7924528, a: 1}
+    - {r: 0.9356437, g: 0, b: 1, a: 1}
+    - {r: 0.97164094, g: 0.53207546, b: 1, a: 1}
+    preColoredCount: 01000000010000000200000002000000030000000300000003000000
+    diamondCount: 02000000020000000300000003000000040000000400000005000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 7
+    BallsCount: 03000000040000000400000005000000060000000600000006000000
+    colorArray:
+    - {r: 1, g: 0, b: 0.51372576, a: 1}
+    - {r: 1, g: 0.24905658, b: 0.6338684, a: 1}
+    - {r: 1, g: 0.40943396, b: 0.7128069, a: 1}
+    - {r: 1, g: 0.5226415, b: 0.769224, a: 1}
+    - {r: 1, g: 0.63584906, b: 0.8245055, a: 1}
+    - {r: 1, g: 0.71132076, b: 0.86100626, a: 1}
+    - {r: 1, g: 0.84339625, b: 0.9248302, a: 1}
+    preColoredCount: 01000000010000000200000002000000030000000300000003000000
+    diamondCount: 02000000030000000300000003000000040000000400000005000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 7
+    BallsCount: 03000000040000000400000005000000060000000600000006000000
+    colorArray:
+    - {r: 0.19893196, g: 0.8301887, b: 0.4458706, a: 1}
+    - {r: 0.32792807, g: 0.6509434, b: 0.45432535, a: 1}
+    - {r: 0.34346744, g: 0.4528302, b: 0.38535103, a: 1}
+    - {r: 0.25176218, g: 0.3018868, b: 0.27032685, a: 1}
+    - {r: 0.31278035, g: 0.4234075, b: 0.4339623, a: 1}
+    - {r: 0.35420075, g: 0.6051844, b: 0.6320754, a: 1}
+    - {r: 0.33748662, g: 0.7135816, b: 0.754717, a: 1}
+    preColoredCount: 01000000010000000200000002000000030000000300000003000000
+    diamondCount: 02000000020000000300000003000000040000000500000006000000
+    difficultyLevel: 5
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 8
+    BallsCount: 0300000004000000040000000500000005000000060000000600000006000000
+    colorArray:
+    - {r: 0, g: 1, b: 0.11371422, a: 1}
+    - {r: 0.19501601, g: 0.7830189, b: 0.2618869, a: 1}
+    - {r: 0.28259164, g: 0.5943396, b: 0.31792313, a: 1}
+    - {r: 0.2708437, g: 0.4528302, b: 0.29131716, a: 1}
+    - {r: 0.22876467, g: 0.33962262, b: 0.24388164, a: 1}
+    - {r: 0.20533995, g: 0.26415092, b: 0.21187451, a: 1}
+    - {r: 0.1464222, g: 0.16981131, b: 0.14954075, a: 1}
+    - {r: 0.08757564, g: 0.09433961, b: 0.08870297, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000030000000300000003000000
+    diamondCount: 0200000003000000030000000400000004000000050000000600000007000000
+    difficultyLevel: 6
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 8
+    BallsCount: 0300000004000000040000000500000005000000050000000600000006000000
+    colorArray:
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0.3773585, g: 0.08686365, b: 0.08686365, a: 1}
+    - {r: 0.5754717, g: 0.23561765, b: 0.23561765, a: 1}
+    - {r: 0.7830189, g: 0.446173, b: 0.446173, a: 1}
+    - {r: 0.9245283, g: 0.6227483, b: 0.6227483, a: 1}
+    - {r: 0.86226416, g: 1, b: 0.9326625, a: 1}
+    - {r: 0.56037736, g: 1, b: 0.78646904, a: 1}
+    - {r: 0.37169808, g: 1, b: 0.6970687, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000030000000300000003000000
+    diamondCount: 0200000003000000030000000300000004000000050000000600000006000000
+    difficultyLevel: 6
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 8
+    BallsCount: 0300000004000000040000000500000005000000050000000600000006000000
+    colorArray:
+    - {r: 0.62072706, g: 0, b: 1, a: 1}
+    - {r: 0.4851647, g: 0, b: 0.7830189, a: 1}
+    - {r: 0.3801886, g: 0, b: 0.6132076, a: 1}
+    - {r: 0.28743342, g: 0, b: 0.46226418, a: 1}
+    - {r: 0.20426933, g: 0, b: 0.3301887, a: 1}
+    - {r: 0.10512129, g: 0, b: 0.16981131, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000030000000300000003000000
+    diamondCount: 0300000003000000030000000400000004000000050000000500000005000000
+    difficultyLevel: 6
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 8
+    BallsCount: 0300000004000000040000000500000005000000050000000600000006000000
+    colorArray:
+    - {r: 1, g: 0.693989, b: 0, a: 1}
+    - {r: 0.8018868, g: 0.5566038, b: 0, a: 1}
+    - {r: 0.5943396, g: 0.41370702, b: 0, a: 1}
+    - {r: 0.4433962, g: 0.30629343, b: 0, a: 1}
+    - {r: 0.3301887, g: 0.22791788, b: 0, a: 1}
+    - {r: 0.16037738, g: 0.110736765, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000030000000300000003000000
+    diamondCount: 0300000003000000030000000400000004000000050000000600000006000000
+    difficultyLevel: 6
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  - CirclesCount: 8
+    BallsCount: 0300000004000000040000000500000005000000050000000600000006000000
+    colorArray:
+    - {r: 0, g: 0.03773582, b: 0.0054753907, a: 1}
+    - {r: 0, g: 0.254717, b: 0.025471674, a: 1}
+    - {r: 0, g: 0.4528302, b: 0.04179976, a: 1}
+    - {r: 0, g: 0.5943396, b: 0.056849834, a: 1}
+    - {r: 0, g: 0.735849, b: 0.06777549, a: 1}
+    - {r: 0, g: 0.9056604, b: 0.081894785, a: 1}
+    - {r: 0.013207495, g: 1, b: 0.102915816, a: 1}
+    - {r: 0.37169808, g: 1, b: 0.43038568, a: 1}
+    preColoredCount: 0100000001000000020000000200000003000000030000000300000003000000
+    diamondCount: 0300000003000000030000000400000004000000050000000600000006000000
+    difficultyLevel: 7
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
   currentLevel:
     CirclesCount: 10
     BallsCount: 0300000003000000030000000300000003000000030000000300000003000000030000000300000003000000
@@ -3846,6 +4423,11 @@ MonoBehaviour:
     - {r: 1, g: 0.89259255, b: 0, a: 0}
     preColoredCount: 
     diamondCount: 
+    difficultyLevel: 0
+    _timeConstraint: {x: 0, y: 0}
+    _angleConstraint: {x: 0, y: 0}
+  _circlesParent: {fileID: 1124460356}
+  _ballsParent: {fileID: 1817221247}
 --- !u!4 &2058573070
 Transform:
   m_ObjectHideFlags: 0
@@ -3994,3 +4576,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073128240}
   m_CullTransparentMesh: 1
+--- !u!1 &2100871820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100871821}
+  m_Layer: 0
+  m_Name: --Destroy after use--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2100871821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100871820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 229.84172, y: 448.6016, z: 1.4650166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

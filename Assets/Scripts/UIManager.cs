@@ -20,6 +20,10 @@ public class UIManager : MonoBehaviour
     public TMP_Text levelText;
     public TMP_Text targetText;
     public Image circleImage;
+    public TMP_Text _diamondsText;
+
+    [SerializeField] Image _upFade;
+    [SerializeField] Image _downFade;
 
     [Space]
     public GameObject restartUI;
@@ -35,6 +39,10 @@ public class UIManager : MonoBehaviour
         {
             newLevelUI.SetActive(false);
         });
+
+        _downFade.color = levelManager.currentLevel.colorArray[0];
+        _upFade.color = levelManager.currentLevel.colorArray[levelManager.currentLevel.colorArray.Length - 1];
+       
     }
     public void restartUiFun()
     {
@@ -51,24 +59,32 @@ public class UIManager : MonoBehaviour
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         pauseUI.SetActive(false);
     }
+    private void Start()
+    {
+        UpdateDiamonds();
+    }
     private void Update()
     {
         circleCount.text = (ballHandler.currentCircleCount + 1).ToString() + "/" + levelManager.currentLevel.CirclesCount.ToString();
         ballCount.text = levelManager.currentLevel.BallsCount[ballHandler.currentCircleCount].ToString();
+
     }
     public void pause()
     {
-        GameObject.FindObjectOfType<soundManager>().fade(0);
+        soundManager.instance.musicSource.volume = .05f;
         pauseUI.SetActive(true);
     }
     public void resume()
     {
-        GameObject.FindObjectOfType<soundManager>().fade(1);
+        soundManager.instance.fadeIn();
         pauseUI.SetActive(false);
     }
     public void home()
     {
         SceneManager.LoadScene("MainMenu");
     }
-
+    public void UpdateDiamonds()
+    {
+        _diamondsText.text = PlayerPrefs.GetInt("Diamonds").ToString();
+    }
 }
